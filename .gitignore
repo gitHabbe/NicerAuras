@@ -1,0 +1,11 @@
+.idea
+.vscode
+LibsClassic
+LibsTBC
+LibsWotlk
+NicerAuras/Libs
+NicerAuras/textures
+
+LoadWotlkLibs.bat
+LoadTBCLibs.bat
+LoadClassicLibs.bat

@@ -1,0 +1,14 @@
+## Interface: 30400
+## Title: NicerAuras
+## Notes: Prints "Hello, World" to the chat.
+## Author: gitHabbe
+## Version: 0.0.1
+## SavedVariables: NicerAuras_DB
+
+embeds.xml
+
+Debug.lua
+NicerAuras.xml
+Frames.lua
+Config.lua
+Database.lua
