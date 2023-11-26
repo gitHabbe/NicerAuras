@@ -212,10 +212,15 @@ NicerAurasAceConfig = {
                     name = "Extra position",
                     order = 63,
                 },
+                targetExtraPositionDescription1 = {
+                    type = "description",
+                    name = "Make room for TargetOfTarget unitframe in case it overlaps the first rows",
+                    order = 64,
+                },
                 targetShortRowCount = option({
                     type = "range",
                     name = "Short row count",
-                    order = 64,
+                    order = 65,
                     step = 1,
                     min = 0,
                     max = 4,
@@ -223,12 +228,12 @@ NicerAurasAceConfig = {
                 targetShortRowWidth = option({
                     type = "range",
                     name = "Short row width",
-                    order = 65,
+                    order = 66,
                     step = 1,
                     min = 30,
                     max = 400,
                 }),
-                targetExtraPositionDescription = {
+                targetExtraPositionDescription2 = {
                     type = "description",
                     name = "If you are using unitframes that are rectangular, then you might want extra room for TargetOfTarget unit frames",
                     order = 69,
