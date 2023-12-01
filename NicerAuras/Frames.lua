@@ -219,7 +219,8 @@ function NicerAuras:UpdateMainFrame()
             offsetX = offsetX + self.db.profile[unit .. "OffsetX"] + self.unitFrameFamily.xOffset
             offsetY = offsetY + self.db.profile[unit .. "OffsetY"] + self.unitFrameFamily.yOffset
         end
-        if self.auraFrame[unit]:GetParent():GetName() ~= relativeTo:GetName() then
+        local parent = self.auraFrame[unit]:GetParent()
+        if parent and parent:GetName() ~= relativeTo:GetName() then
             self.auraFrame[unit]:SetParent(relativeTo)
         end
         --DebugNicerAuras:Print(point .. " " .. relativePoint .. " " .. offsetX .. " x " .. offsetY)
