@@ -5,6 +5,12 @@ UnitFrames = {
         yOffset = 34,
         xOffset = 4,
     },
+    NicerFrames = {
+        target = "TargetFrameCustom",
+        focus = "FocusFrame",
+        yOffset = 6,
+        xOffset = 1,
+    },
     ShadowedUnitFrames = {
         target = "SUFUnittarget",
         focus = "SUFUnitfocus",
