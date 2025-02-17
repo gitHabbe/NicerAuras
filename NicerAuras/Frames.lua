@@ -40,8 +40,8 @@ function NicerAuras:HideBlizAurasFrames()
         local blizzardFocusDebuff = _G["FocusFrameDebuff" .. auraID]
         if (blizzardFocusDebuff) then blizzardFocusDebuff:Hide() end
     end
-    TargetFrame_UpdateAuras = function () end
-    TargetDebuffButton_Update = function () end
+    TargetFrame_UpdateAuras = function() end
+    TargetDebuffButton_Update = function() end
 end
 
 function NicerAuras:CreateMainFrame()
@@ -54,7 +54,13 @@ function NicerAuras:CreateMainFrame()
         end
         self.auraFrame[unit] = CreateFrame("Frame", "AuraFrame" .. unit, auraFrameParent, "AuraFrame_Template")
         self.auraFrame[unit]:ClearAllPoints()
-        self.auraFrame[unit]:SetPoint("TOPLEFT", auraFrameParent, "BOTTOMLEFT", self.db.profile[unit .. "OffsetX"], self.db.profile[unit .. "OffsetY"])
+        self.auraFrame[unit]:SetPoint(
+            "TOPLEFT",
+            auraFrameParent,
+            "BOTTOMLEFT",
+            self.db.profile[unit .. "OffsetX"],
+            self.db.profile[unit .. "OffsetY"]
+        )
         --DebugNicerAuras:Print("frame strata: " .. self.auraFrame[unit]:GetFrameStrata())
         --DebugNicerAuras:Print("frame level: " .. self.auraFrame[unit]:GetFrameLevel())
         --local auraFramePoint, auraFrameParent2, auraFrameRelativePoint, auraFrameOffsetX, auraFrameOffsetY = self.auraFrame[unit]:GetPoint()
@@ -138,7 +144,14 @@ function NicerAuras:_StyleDraggableOverlay(frame, overlay)
     overlay:ClearAllPoints()
     overlay:SetSize(frameWidth, frameHeight)
     overlay:SetPoint("CENTER")
-    overlay:SetBackdrop( { bgFile="Interface\\ChatFrame\\ChatFrameBackground", tileSize=16, tile=true, edgeFile="Interface\\ChatFrame\\ChatFrameBackground", edgeSize=1 } )
+    overlay:SetBackdrop({
+        bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+        tileSize = 16,
+        tile = true,
+        edgeFile =
+        "Interface\\ChatFrame\\ChatFrameBackground",
+        edgeSize = 1
+    })
     overlay:SetBackdropColor(0.1, 0.60, 0.60, 0.40)
     overlay:SetBackdropBorderColor(0, 0, 0, 0.60)
     overlay:SetFrameLevel(1000)
@@ -155,7 +168,6 @@ function NicerAuras:_StyleDraggableOverlay(frame, overlay)
     overlay.Text:Show()
     overlay.Text:ClearAllPoints()
     overlay.Text:SetPoint("CENTER", overlay, "CENTER")
-
 end
 
 function NicerAuras:_CreateDraggableOverlay(unit)
@@ -163,7 +175,7 @@ function NicerAuras:_CreateDraggableOverlay(unit)
     local frameName = frame:GetName() .. "Overlay"
     local overlay = _G[frameName]
     if not overlay then
-        overlay = CreateFrame("Frame", frame:GetName() .. "Overlay", frame, "BackdropTemplate")
+        overlay = CreateFrame("Frame", frame:GetName() .. "Overlay", frame, BackdropTemplateMixin and "BackdropTemplate")
         DebugNicerAuras:Print("Creating overlay")
     end
     frame.overlay = overlay
@@ -185,7 +197,7 @@ function NicerAuras:_CreateDraggableOverlay(unit)
         parent:StopMovingOrSizing()
 
         local scale = parent:GetEffectiveScale()
-        local xPos  = parent:GetLeft() * scale
+        local xPos = parent:GetLeft() * scale
         local yPos = parent:GetTop() * scale
 
         NicerAuras.db.profile[unit .. "FreeX"] = xPos
@@ -275,7 +287,7 @@ function NicerAuras:_CreateBuffFrames(unit)
     for i, _ in ipairs(frameTable) do
         if self.isClassic or self.isWotlk then
             self.largeAuraList[unit .. "Buff"][i] = frameTable[i].caster == "player"
-        elseif self.isTBC  then
+        elseif self.isTBC then
             self.largeAuraList[unit .. "Buff"][i] = frameTable[i].caster == true
         end
         self.auraFrame[unit].buffFrame["Aura" .. i] = frameTable[i]
@@ -494,7 +506,6 @@ function NicerAuras:_PositionAuraFrame(auraFrame, auraID, relativeIndex, size, y
         xOffset = 0;
         yOffset = 0;
         relativeTo = frame:GetParent();
-
     elseif (relativeIndex ~= auraID - 1) then
         --[[ If the relativeIndex isn't the icon before, this means that a new row begins. Set relativePoint = point,
              because otherwise the icon would be attached to the wrong side of the auraType frame.
@@ -592,4 +603,3 @@ function NicerAuras:_PositionBuffAndDebuffFrames(buffCount, debuffCount, buffFra
     self.auraFrame[unit]:SetWidth(width, totalHeight);
     self.auraFrame[unit]:SetHeight(totalHeight);
 end
-
