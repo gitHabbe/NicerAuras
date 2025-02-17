@@ -69,6 +69,8 @@ NicerAurasDefaults = {
     lighterBuffs = false,
     shortRowCount = 2,
     shortRowWidth = 80,
+    petFreeX = 0,
+    petFreeY = 0,
 
     debugMode = false,
     testMode = false,

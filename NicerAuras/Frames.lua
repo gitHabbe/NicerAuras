@@ -35,6 +35,10 @@ function NicerAuras:HideBlizAurasFrames()
         if (blizzardBuff) then blizzardBuff:Hide() end
         local blizzardDebuff = _G["TargetFrameDebuff" .. auraID]
         if (blizzardDebuff) then blizzardDebuff:Hide() end
+        local blizzardFocusBuff = _G["FocusFrameBuff" .. auraID]
+        if (blizzardFocusBuff) then blizzardFocusBuff:Hide() end
+        local blizzardFocusDebuff = _G["FocusFrameDebuff" .. auraID]
+        if (blizzardFocusDebuff) then blizzardFocusDebuff:Hide() end
     end
     TargetFrame_UpdateAuras = function () end
     TargetDebuffButton_Update = function () end
