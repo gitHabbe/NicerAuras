@@ -2,14 +2,14 @@ local singleBuffTemplate = "NicerAuras_SingleBuffTemplate"
 local singleDebuffTemplate = "NicerAuras_SingleDebuffTemplate"
 
 local DispelTypeColor = {
-none = { r = 0.00, g = 0.00, b = 0.00 },
-Magic	= { r = 0.20, g = 0.60, b = 1.00 },
-Curse	= { r = 0.60, g = 0.00, b = 1.00 },
-Disease = { r = 0.60, g = 0.40, b = 0 },
-Poison = { r = 0.00, g = 0.60, b = 0 },
-Grey = { r = 0.8, g = 0.8, b = 0.8 },
---customDebuff = NicerAuras.db.profile["neutralDebuffColor"],
-[""] = { r = 0.00, g = 0.00, b = 0.00 },
+    none = { r = 0.00, g = 0.00, b = 0.00 },
+    Magic = { r = 0.20, g = 0.60, b = 1.00 },
+    Curse = { r = 0.60, g = 0.00, b = 1.00 },
+    Disease = { r = 0.60, g = 0.40, b = 0 },
+    Poison = { r = 0.00, g = 0.60, b = 0 },
+    Grey = { r = 0.8, g = 0.8, b = 0.8 },
+    --customDebuff = NicerAuras.db.profile["neutralDebuffColor"],
+    [""] = { r = 0.00, g = 0.00, b = 0.00 },
 }
 
 local function sortByDuration(frame1, frame2)

@@ -96,7 +96,7 @@ function OnAuraClick(self, buttonName)
         end
     elseif self.isTBC or self.isWotlk then
         if UnitInBattleground("player") then
-             targetChannel = "CHAT_MSG_BATTLEGROUND"
+            targetChannel = "CHAT_MSG_BATTLEGROUND"
         elseif UnitInRaid("player") then
             targetChannel = "RAID"
         elseif UnitInParty("player") > 1 then
@@ -115,11 +115,14 @@ function OnAuraClick(self, buttonName)
     if self.sortIndex > 50000 then
         chatMessage = chatMessage .. "affected by " .. self.type .. ": " .. self.auraName
     elseif self.sortIndex > 60 then
-        chatMessage = chatMessage .. self.type .. ": " .. self.auraName .. ", " .. math.ceil(self.sortIndex / 60) .. " min left"
+        chatMessage = chatMessage ..
+            self.type .. ": " .. self.auraName .. ", " .. math.ceil(self.sortIndex / 60) .. " min left"
     elseif self.sortIndex > 10 then
-        chatMessage = chatMessage .. self.type .. ": " .. self.auraName .. ", " .. math.ceil(self.sortIndex) .. " sec left"
+        chatMessage = chatMessage ..
+            self.type .. ": " .. self.auraName .. ", " .. math.ceil(self.sortIndex) .. " sec left"
     elseif self.sortIndex < 10 then
-        chatMessage = chatMessage .. self.type .. ": " .. self.auraName .. ", " .. string.format("%.1f", self.sortIndex) .. " sec left"
+        chatMessage = chatMessage ..
+            self.type .. ": " .. self.auraName .. ", " .. string.format("%.1f", self.sortIndex) .. " sec left"
     end
     if targetChannel ~= nil then
         SendChatMessage(chatMessage, targetChannel);
@@ -127,4 +130,3 @@ function OnAuraClick(self, buttonName)
         print(chatMessage)
     end
 end
-

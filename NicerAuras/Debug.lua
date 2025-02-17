@@ -1,4 +1,4 @@
-function colorize(text, color)
+local function colorize(text, color)
     return color .. text .. "|r"
 end
 
@@ -58,4 +58,3 @@ function DebugNicerAuras:MockAuraData(auraID, auraType)
         end
     end
 end
-
