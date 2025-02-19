@@ -26,7 +26,7 @@ jobs:
 
             mkdir -p $PROJECT_NAME/Libs
             curl -L -o ace3.zip "$ACE3_URL"
-            unzip ace3.zip -d temp/$PROJECT_NAME
+            unzip ace3.zip -d temp/
             local ACE3_LIBS=(
               "LibStub"
               "CallbackHandler-1.0"
@@ -40,7 +40,7 @@ jobs:
               "AceDBOptions-3.0"
             )
             for lib in "${ACE3_LIBS[@]}"; do
-              cp -r temp/${PROJECT_NAME}/Ace3/$lib $PROJECT_NAME/Libs/
+              cp -r temp/Ace3/$lib $PROJECT_NAME/Libs/
             done
 
             sed -i "s/^## Interface: [0-9]\+/## Interface: $INTERFACE_VERSION/" "$PROJECT_NAME/$PROJECT_NAME.toc"
@@ -48,6 +48,7 @@ jobs:
 
             zip -r ${PROJECT_NAME}_${GAME_VERSION}.zip $PROJECT_NAME
             echo "${PROJECT_NAME}_${GAME_VERSION}"
+            rm -rf temp/
           }
 
           build_version "WOTLK" "30402" \
